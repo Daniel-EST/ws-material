@@ -70,8 +70,8 @@ ano <-
 # Coletando a avalição usando xpath '//*[@id="title-overview-widget"]/div[1]/div[2]/div/div[1]/div[1]/div[1]/strong/span'
 # Problemas do xpath:
 # O xpath é uma posição fixa, não podemos garantir que em todas as páginas o xpath do que
-# queremos será a mesma, diferente dos métodos class, tag e id que são 'dinâmicos'.
-# Qualquer menor alteração na página pode quebrar nosso código.
+# queremos será o mesmo. Diferente dos métodos class, tag e id que são 'dinâmicos,.
+# qualquer menor alteração na página pode quebrar nosso código.
 
 avaliacao <- 
   html %>% 
@@ -151,10 +151,128 @@ info_filmes <- function(url)
   return(t(c(title = titulo, summary = sinopse, year = ano, rate = avaliacao, post = poster)))
 }
 
-data <- 
+imdb <- 
   purrr::map(filmes, info_filmes) %>% 
   qdapTools::list_df2df()
 
-View(data)
+View(imdb)
 
 # Seção 2.2 ----------- RSelenium
+# Agora utilizaremos o RSelenium para coletar informações de produtos no site da 
+# submarino ( https://www.submarino.com.br ) 
+url <- 'https://www.submarino.com.br'
+
+# Checando robots.txt
+robots <- paste(url,'robots.txt', sep = '/') # gerando o link para a página do robots.txt.
+robots.txt <- read_tsv(robots, col_types = 'c') # lendo o robots.txt e colocando em um tibble.
+View(robots.txt) # Visualizando o objeto.
+
+# Nosso objetivo agora é utilizar o pacote RSelenium para coletar informações de preço
+# e frete de algum produto.
+# Coletaremos as seguintes informações dos produtos:
+# * Nome ;
+# * Categoria ;
+# * Preço ;
+# * Custo do frete mais econômico.
+
+# Carregando o pacote.
+require(RSelenium)
+
+# Iniciando nosso navegador automatizado
+rD <- rsDriver(browser = c("firefox"))
+remDr <- rD$client
+url <- 'https://www.submarino.com.br/produto/132806882/'
+cepNum <- '26290027'
+
+# Realizando a consulta.
+remDr$navigate(url) # Fazendo com que nosso navegador automatizado entre no URL especificado
+ produto <- 
+  remDr$findElement(using = 'class',
+                      value = 'product-name') # Procurando o elemento por class.
+ produto <- produto$getElementText() %>% unlist() # Coletando o texto desse elemento.
+  
+cod <- 
+   remDr$findElement(using = 'class',
+                    value = 'product-id') # Procurando utilizando class.
+cod <- cod$getElementText() %>% unlist()
+  
+preco <- 
+  remDr$findElement(using = 'class',
+                     value = 'sales-price')
+ preco <- preco$getElementText() %>% unlist()
+  
+cep <- 
+  remDr$findElement(using = 'id',
+                    value = 'input-freight-product')
+cep$clickElement() # Clicando no campo para digitar o CEP
+cep$sendKeysToElement(list(cepNum, 
+                             key = "enter")) # inputa o cep no campo desejado.
+
+frete <- 
+  remDr$findElement(using = 'class',
+                    value = 'card-freight')
+frete <- 
+  frete$getElementText() %>% 
+  unlist() %>% 
+  str_extract('\nEconômica R\\$ \\d+,\\d+') %>% 
+  str_extract('R\\$ \\d+,\\d+')
+
+
+# Agora queremos consultar todos esses links
+urls <- c(
+  'https://www.submarino.com.br/produto/132806882/',
+  'https://www.submarino.com.br/produto/31716174/',
+  'https://www.submarino.com.br/produto/128775024/',
+  'https://www.submarino.com.br/produto/31541986/',
+  'https://www.submarino.com.br/produto/132490742/'
+  )
+
+cepNum <- '26290027' # Cep que utilizaremos
+
+
+# Agora criei uma função para automatizar
+collect <- function(url, cepNum, remDr = rD$client)
+{
+  remDr$deleteAllCookies()
+  remDr$navigate(url) # Fazendo com que nosso navegador automatizado entre no URL especificado
+  produto <- 
+    remDr$findElement(using = 'class',
+                      value = 'product-name') # Procurando o elemento por class.
+  produto <- produto$getElementText() %>% unlist() # Coletando o texto desse elemento.
+  
+  cod <- 
+    remDr$findElement(using = 'class',
+                      value = 'product-id') # Procurando utilizando class.
+  cod <- cod$getElementText() %>% unlist()
+  
+  preco <- 
+    remDr$findElement(using = 'class',
+                      value = 'sales-price')
+  preco <- preco$getElementText() %>% unlist()
+
+  cep <- 
+    remDr$findElement(using = 'id',
+                      value = 'input-freight-product')
+  cep$clickElement() # Clicando no campo para digitar o CEP
+  cep$sendKeysToElement(list(cepNum, 
+                             key = "enter")) # inputa o cep no campo desejado.
+  
+  Sys.sleep(1)
+  frete <- 
+    remDr$findElement(using = 'class',
+                      value = 'card-freight')
+  frete <- 
+    frete$getElementText() %>% 
+    unlist() %>% 
+    str_extract('\nEconômica R\\$ \\d+,\\d+') %>% 
+    str_extract('R\\$ \\d+,\\d+')
+ 
+  Sys.sleep(1)
+  
+  return(t(c(nome = produto, codigo = cod, price = preco, fre = frete)))
+}
+
+submarino <- 
+  purrr::map(urls, collect, cepNum = '26290027') %>% 
+  qdapTools::list_df2df()
+View(submarino)
