@@ -24,8 +24,8 @@ url <- 'https://www.imdb.com'
 
 # Checando robots.txt
 robots <- paste(url,'robots.txt', sep = '/') # gerando o link para a página do robots.txt.
-robots.txt <- read_tsv(robots, col_types = 'c') # lendo o robots.txt e colocando em um tibble.
-View(robots.txt) # Visualizando o objeto.
+robots_txt <- read_tsv(robots, col_types = 'c') # lendo o robots.txt e colocando em um tibble.
+View(robots_txt) # Visualizando o objeto.
 # Pelo robots.txt verificamos que não há restrição sob a coleta de informações de alguns filmes
 # de sua base de dados.
 
