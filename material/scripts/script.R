@@ -8,9 +8,10 @@
 # * stringr ( manipulação de strings )
 # * magrittr ( operadores pipe ' %>% ')
 # * readr ( manipulação de arquivos )
+# * qdapTools
 # * purrr
 # * tidyverse
-# install.packages(c('rvest', 'RSelenium', 'stringr', 'magrittr', 'purrr')) 
+# install.packages(c('rvest', 'RSelenium', 'stringr', 'magrittr', 'purrr', 'qdapTools)) 
 # install.packages('tidyverse')
 
 # Carregando alguns desses pacotes.
@@ -164,8 +165,8 @@ url <- 'https://www.submarino.com.br'
 
 # Checando robots.txt
 robots <- paste(url,'robots.txt', sep = '/') # gerando o link para a página do robots.txt.
-robots.txt <- read_tsv(robots, col_types = 'c') # lendo o robots.txt e colocando em um tibble.
-View(robots.txt) # Visualizando o objeto.
+robots_txt <- read_tsv(robots, col_types = 'c') # lendo o robots.txt e colocando em um tibble.
+View(robots_txt) # Visualizando o objeto.
 
 # Nosso objetivo agora é utilizar o pacote RSelenium para coletar informações de preço
 # e frete de algum produto.
@@ -222,9 +223,12 @@ frete <-
 urls <- c(
   'https://www.submarino.com.br/produto/132806882/',
   'https://www.submarino.com.br/produto/31716174/',
-  'https://www.submarino.com.br/produto/128775024/',
   'https://www.submarino.com.br/produto/31541986/',
-  'https://www.submarino.com.br/produto/132490742/'
+  'https://www.submarino.com.br/produto/132490742/',
+  'https://www.submarino.com.br/produto/133678229/',
+  'https://www.submarino.com.br/produto/399697/',
+  'https://www.submarino.com.br/produto/113091965/',
+  'https://www.submarino.com.br/produto/128775024/'
   )
 
 cepNum <- '26290027' # Cep que utilizaremos
