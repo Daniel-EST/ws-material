@@ -187,6 +187,8 @@ Com o que vimos até agora faça uma coleta simples no site do [IMDB](https://ww
   + Avaliação
   + Link para a imagem do poster. Dica: use a função `html_attr()`
 
+<small>Tente não usar o xpath.</small>
+
 ## RSelenium
 <div class="columns-2" class="centered">
 Principais funções.
@@ -208,7 +210,7 @@ knitr::include_graphics("../../src/img/selenium.png")
 
 # Encerramento
 
-  + Ética e boas práticas
   + robots.txt
+  + Ética e boas práticas
   + Agradecimento
   
