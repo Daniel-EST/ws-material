@@ -249,6 +249,7 @@ remDr$findElement(using = 'class name', value = 'price')
 ```
 ## `clickElement()` e `sendKeysToElement()`
 
+FALTA SÓ ESSE AQUI EIN NÃO VAI ESQUECER
 
 # Encerramento
 
@@ -267,7 +268,7 @@ Exemplo:
 
 - Respeitar o robots.txt
 - Não fazer mais de uma consulta por segundo. Basta colocar um `Sys.sleep(1)` no seu código.
-- Se houver, não ultrapassar o limite de informções coletadas por dia.
+- Não ultrapassar o limite de informções coletadas por dia, se evolver. Entretanto, sempre manter o bom senso.
 
 Essas boas práticas evitam que sobrecarreguemos os servidores e cause prejuízo a essas empresas.
 
