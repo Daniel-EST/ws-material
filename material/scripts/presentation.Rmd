@@ -57,7 +57,11 @@ knitr::include_graphics("../../src/img/non-estructured.png")
 
 # HTML
 
-## Estruturas
+  + Estruturas (nodes)
+  + Inspecionar Elemento
+  + xpath
+
+## Estruturas (nodes)
 - [Tags](https://html.com/tags/)
     + título: `<title> ... </title>`  
     + parágrafo de texto: `<p> ... </p>`  
@@ -110,6 +114,9 @@ knitr::include_graphics("../../src/img/xpath.png")
 
 # Pacotes 
 
+  + rvest
+  + RSelenium
+  
 ## rvest
 
 <div class="columns-2" class="centered">
@@ -121,7 +128,6 @@ Principais funções.
 - `html_text()`  
 - `html_attr()`  
 - `html_table()` 
-
 
 ```{r echo=FALSE, out.height = '300px', fig.align = 'center'}
 knitr::include_graphics("../../src/img/rvest.png")
@@ -196,3 +202,10 @@ Principais funções.
 knitr::include_graphics("../../src/img/selenium.png")
 ```
 </div>
+
+# Encerramento
+
+  + Ética e boas práticas
+  + robots.txt
+  + Agradecimento
+  
