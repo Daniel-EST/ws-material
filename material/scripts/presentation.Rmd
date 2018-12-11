@@ -5,11 +5,21 @@ author: Daniel dos Santos
 date: 15 de dezembro de 2018
 output: 
   ioslides_presentation:
-     logo: '../../src/img/ibge.png'
+     logo: ../../src/img/logo.png
      widescreen: true
      self_contained: yes
     # incremental: true
 ---
+
+<style>
+aside.gdbar img {
+  width: 128px;
+  height: 66px;
+  position: absolute;
+  right: 0;
+  margin: 15px 15px;
+}
+</style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -283,3 +293,14 @@ knitr::include_graphics("../../src/img/robo.png")
 ##### Daniel dos Santos
 
 ######## Universidade Federal Fluminense
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+[Github](https://www.github.com/Daniel-EST/ws-material/)
