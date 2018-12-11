@@ -38,8 +38,11 @@ knitr::opts_chunk$set(echo = FALSE)
     + [RSelenium](https://github.com/ropensci/RSelenium)
   
 - Outros
-   + [stringr](https://github.com/tidyverse/stringr)
-   + [dplyr](https://github.com/tidyverse/dplyr)
+    + [stringr](https://github.com/tidyverse/stringr)
+    + [dplyr](https://github.com/tidyverse/dplyr)
+   
+<br>
+<small>A documentação dos pacotes encontra-se na pasta da apresentação.</small>
 
 ## O que é webscrapping ?
 
