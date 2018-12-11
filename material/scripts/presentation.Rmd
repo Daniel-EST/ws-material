@@ -1,11 +1,11 @@
 ---
-title: 'Mini-curso Webscrapping'
-subtitle: Universidade Federal Fluminense
-author: Daniel dos Santos
-date: 15 de dezembro de 2018
+title: 'Web Scraping'
+subtitle: 'Universidade Federal Fluminense'
+author: 'Daniel dos Santos'
+date: '15 de dezembro de 2018'
 output: 
   ioslides_presentation:
-     logo: ../../src/img/logo.png
+     logo: '../../src/img/logo.png'
      widescreen: true
      self_contained: yes
     # incremental: true
