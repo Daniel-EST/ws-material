@@ -5,9 +5,9 @@ author: Daniel dos Santos
 date: 15 de dezembro de 2018
 output: 
   ioslides_presentation:
-    # logo: ../../src/img/uff-logo.jpeg
-    # widescreen: true
-    # self_contained: no
+     logo: '../../src/img/ibge.png'
+     widescreen: true
+     self_contained: yes
     # incremental: true
 ---
 
@@ -258,12 +258,27 @@ remDr$findElement(using = 'class name', value = 'price')
   
 ## robots.txt
 
+robots.txt é uma forma de sabermos onde o proprietário do site nos permite fazer scrapping. Atualmente, grande parte dos sites já possuem e podemo checar apenas adicionando `/robots.txt` no final da url.  
+<br>
+Exemplo:
+<http://www.amazon.com.br/robots.txt> , ao clicar no link poderemos ver o robots.txt da página da Amazon.
+
 ## Ética e boas práticas
 
-## Agradecimento
+- Respeitar o robots.txt
+- Não fazer mais de uma consulta por segundo. Basta colocar um `Sys.sleep(1)` no seu código.
+- Se houver, não ultrapassar o limite de informções coletadas por dia.
 
+Essas boas práticas evitam que sobrecarreguemos os servidores e cause prejuízo a essas empresas.
+
+## Captcha
+
+```{r echo=FALSE, out.height = '600px', fig.align = 'center'}
+knitr::include_graphics("../../src/img/robo.png")
+```
+
+## Agradecimento
 
 ##### Daniel dos Santos
 
 ######## Universidade Federal Fluminense
-  
