@@ -136,6 +136,7 @@ Principais funções.
 knitr::include_graphics("../../src/img/rvest.png")
 ```
 </div>
+
 ## `read_html()`{.vcenter}
 
 A função `read_html()` lê arquivos em html de forma similiar a um `read_csv()`,
@@ -185,32 +186,84 @@ Com o que vimos até agora faça uma coleta simples no site do [IMDB](https://ww
   + Sinopse
   + Ano
   + Avaliação
-  + Link para a imagem do poster. Dica: use a função `html_attr()`
+  + Link para a imagem do poster.  
+  Dica: use a função `html_attr()`
 
 <small>Tente não usar o xpath.</small>
 
 ## RSelenium
+
+<big>**Por que usar o RSelenium?**</big> 
+<br>
+Nem sempre sites não são feitos apenas em **html**, alguns possuem aplicativos interativos feitos em outras linguagens, como por exemplo **JavaScript**. Assim, precisaremos emular um navegador automatizado para interagir com a página web e coletar as informações desejadas e para isso usaremos o `Selenium`.
+
+## Funções
 <div class="columns-2" class="centered">
 Principais funções.
 
+- `rsDriver()`
 - `navigate()`
 - `goBack()`
 - `goForward()`
 - `refresh()`
 - `findElement()`
 - `findElements()`
-- `highlightElement()`
 - `clickElement()`
 - `sendKeysToElement()`
+
 
 ```{r echo=FALSE, out.height = '250px', fig.align = 'center'}
 knitr::include_graphics("../../src/img/selenium.png")
 ```
 </div>
 
+## `rsDriver()` {.small}
+Inicia o navegador automatizado, o navegador _default_ é o Chrome mas possuímos 2 outras opções, Firefox e phantomJS.  
+<br>
+Utilização:  
+<br>
+- `rD <- rsDriver(browser = 'firefox')` incializa o Firefox e armazena em um objeto.  
+- `remDr <- rD$client` remDr é o objeto que será o cliente do servidor, ou seja, ele é responsável por enviar as requisições.  
+  
+  <small>`remDr` = _Remote Driver_</small>
+  
+##  `navigate()`, `goBack()`, `goForward()` e `refresh()`
+- `navigate()` navega até a url desejada. Utilização.   `remDr$navigate('http://www.google.com.br/')` navega até a página inicial do google.  
+- `goBack()` volta para a página anterior do navegador. Utilização, `remDr$goBack()`  
+- `goForward()` avança para a página seguinte do navegador. Utilização, `remDr$goForward()`  
+- `refresh()` atualiza a página do navegador. Utilização, `remDr$refresh()`  
+
+
+## `findElement()` e `findElements()`
+Essas funções são similares as funções `html_node()` e `html_nodes()`, respectivamente.  
+<br>
+Argumentos:  
+<br>
+- `using` devemos passar o que iremos usar para a função encontrar o elemento. Valores possíveis: `class name`, `name`, `xpath`, `id`, `css selector`, `tag name` e `link text`.  
+<br>
+- `value` os valores do que estamos procurando.  
+<br>
+Utilização:  
+```r 
+remDr$findElement(using = 'class name', value = 'price')
+```
+## `clickElement()` e `sendKeysToElement()`
+
+
 # Encerramento
 
   + robots.txt
   + Ética e boas práticas
   + Agradecimento
+  
+## robots.txt
+
+## Ética e boas práticas
+
+## Agradecimento
+
+
+##### Daniel dos Santos
+
+######## Universidade Federal Fluminense
   
