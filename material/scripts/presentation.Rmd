@@ -1,0 +1,125 @@
+---
+title: 'Mini-curso Webscrapping'
+subtitle: Universidade Federal Fluminense
+author: Daniel dos Santos
+date: 15 de dezembro de 2018
+output: 
+  ioslides_presentation:
+    # logo: ../../src/img/uff-logo.jpeg
+    # widescreen: true
+    # self_contained: no
+    # incremental: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Conteúdo
+- Introdução
+<br>
+- HTML
+<br>
+- [rvest](https://github.com/hadley/rvest)
+<br>
+- [RSelenium](https://github.com/ropensci/RSelenium)
+<br>
+- Encerramento
+
+# Introdução
+
+  + Pacotes
+  + O que é webscrapping?
+
+## Pacotes
+
+- Essenciais
+    + [rvest](https://github.com/hadley/rvest)
+    + [RSelenium](https://github.com/ropensci/RSelenium)
+  
+- Outros
+   + [stringr](https://github.com/tidyverse/stringr)
+   + [dplyr](https://github.com/tidyverse/dplyr)
+
+## O que é webscrapping ?
+
+Webscrapping é uma técnica de coleta online que por meio de processos automatizados realiza uma _raspagem_ (scrapping) de uma página da web, estruturando informações contidas no site.
+
+<div class="columns-2" class="centered">
+```{r echo=FALSE, out.height = '200x', fig.cap = 'Dados estruturados'}
+knitr::include_graphics("../../src/img/estructured.png")
+```
+
+```{r echo=FALSE, out.height = '280px', fig.cap = 'Dados não estruturados'}
+knitr::include_graphics("../../src/img/non-estructured.png")
+```
+</div>
+
+# HTML
+
+## Estruturas
+- [Tags](https://html.com/tags/)
+    + título: `<title> ... </title>`  
+    + parágrafo de texto: `<p> ... </p>`  
+    + blocos: `<div> ... </div>`
+    + tabela: `<table> ... </table>`  
+    + hiperlink (âncora): `<a> ... </a>`
+<br>
+- Class
+    + exemplo: `<p class = 'CLASSE'> ... </p>`  
+<br>
+- ID
+    + exemplo: `<p id = 'ID'> ... </p>`  
+
+## Inspecionar Elemento
+
+Podemos inspecionar os elementos de uma página clicando com o botão direito do mouse e acessando a opção **Inspecionar Elemento**.
+
+```{r echo=FALSE, out.height = '280px', fig.align = 'center'}
+knitr::include_graphics("../../src/img/inspect-element-click.png")
+```
+
+## Inspeção
+
+A seguinte janela aparecerá.
+
+```{r echo=FALSE, out.height = '280px', fig.align = 'center'}
+knitr::include_graphics("../../src/img/inspect-element-view.png")
+```
+# Pacotes 
+
+## rvest
+
+<div class="columns-2" class="centered">
+Principais funções.
+
+- `read_html()`
+- `html_node()`  
+- `html_nodes()`  
+- `html_attr()`  
+- `html_text()`  
+- `html_table()` 
+
+```{r echo=FALSE, out.height = '300px', fig.align = 'center'}
+knitr::include_graphics("../../src/img/rvest.png")
+```
+</div>
+## RSelenium
+<div class="columns-2" class="centered">
+Principais funções.
+
+- `navigate()`  
+- `goBack()`  
+- `goForward()`  
+- `refresh()`  
+- `findElement()`  
+- `findElements()`  
+- `highlightElement()`  
+- `clickElement()`  
+- `mouseMoveToLocation()`  
+- `sendKeysToElement()` 
+
+```{r echo=FALSE, out.height = '250px', fig.align = 'center'}
+knitr::include_graphics("../../src/img/selenium.png")
+```
+</div>
