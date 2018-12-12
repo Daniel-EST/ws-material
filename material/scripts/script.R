@@ -11,7 +11,7 @@
 # * qdapTools
 # * purrr
 # * tidyverse
-# install.packages(c('rvest', 'RSelenium', 'stringr', 'magrittr', 'purrr', 'qdapTools))
+# install.packages(c('rvest', 'RSelenium', 'stringr', 'magrittr', 'purrr', 'qdapTools'))
 # install.packages('tidyverse')
 
 # Carregando alguns desses pacotes.
