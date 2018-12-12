@@ -1,16 +1,15 @@
 ---
-title: 'Web Scraping'
-subtitle: 'Universidade Federal Fluminense'
-author: 'Daniel dos Santos'
+title: Web Scraping
+subtitle: Universidade Federal Fluminense
+author: Daniel dos Santos
 date: '15 de dezembro de 2018'
 output: 
   ioslides_presentation:
-     logo: '../../src/img/logo.png'
+     logo: ../../src/img/logo.png
      widescreen: true
      self_contained: yes
     # incremental: true
 ---
-
 <style>
 aside.gdbar img {
   width: 128px;
@@ -140,7 +139,7 @@ Em **Inspecionar Elemento** clique com o botão direito na parte desejada e sele
 knitr::include_graphics("../../src/img/xpath.png")
 ```
 
-## Vantagens e desvantagens{.flexbox}
+## Vantagens e desvantagens
 
 - Vantagens
     + Fácil utilização
@@ -197,7 +196,7 @@ Vamos supor que ao objeto `HTML` está atribuído um arquivo html usando a funç
 <br>
 - `html_node(HTML, #price)`, extrai apenas uma parte com o id `price`, em caso de id devemos colocar `#` antes do nome do id.  
 
-##{.flexbox .vcenter}
+##
 
 Podemos ainda buscar por mais de uma parte, exemplo:  
 <br>
