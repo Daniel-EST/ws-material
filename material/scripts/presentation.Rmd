@@ -293,7 +293,7 @@ objeto$clickElement()
 -   `sendKeysToElement()` aperta teclas e as envia para o site
 ```r
 objeto <- findElement(using = 'id', value = 'formulario')
-objeto$sendKeysToElement()
+objeto$sendKeysToElement(list('digite o que quiser aqui', key = "enter"))
 ```
 
 # Encerramento
