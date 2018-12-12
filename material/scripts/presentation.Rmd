@@ -284,7 +284,17 @@ remDr$findElement(using = 'class name', value = 'price')
 ```
 ## `clickElement()` e `sendKeysToElement()`
 
-FALTA SÓ ESSE AQUI EIN NÃO VAI ESQUECER
+-   `clickElement()` clica no elemento. Utilização:
+
+```r
+objeto <- findElement(using = 'class', value = 'cast')
+objeto$clickElement()
+```
+-   `sendKeysToElement()` aperta teclas e as envia para o site
+```r
+objeto <- findElement(using = 'id', value = 'formulario')
+objeto$sendKeysToElement()
+```
 
 # Encerramento
 
