@@ -18,6 +18,7 @@ aside.gdbar img {
   right: 0;
   margin: 15px 15px;
 }
+
 .gdbar img {
   width: 128px !important;
   height: 66px !important;
@@ -34,7 +35,7 @@ slides > slide:not(.nobackground):before {
   position: absolute;
   bottom: 20px;
   left: 60px;
-  background: url(logo.png) no-repeat 0 50%;
+  background: url('../../src/img/logo.png') no-repeat 0 50%;
   -webkit-background-size: 70px;
   -moz-background-size: 70px;
   -o-background-size: 70px;
