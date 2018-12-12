@@ -19,6 +19,31 @@ aside.gdbar img {
   right: 0;
   margin: 15px 15px;
 }
+.gdbar img {
+  width: 128px !important;
+  height: 66px !important;
+}
+
+.logoslide img {
+  width: 128px;
+  height: 66px;
+}
+
+slides > slide:not(.nobackground):before {
+  font-size: 12pt;
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  background: url(logo.png) no-repeat 0 50%;
+  -webkit-background-size: 70px;
+  -moz-background-size: 70px;
+  -o-background-size: 70px;
+  background-size: 70px;
+  padding-left: 70px;
+  height: 40px;
+  line-height: 1.9;
+}
 </style>
 
 ```{r setup, include=FALSE}
@@ -39,7 +64,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # Introdução
 
   + Pacotes
-  + O que é webscrapping?
+  + O que é web scraping?
 
 ## Pacotes
 
@@ -54,9 +79,9 @@ knitr::opts_chunk$set(echo = FALSE)
 <br>
 <small>A documentação dos pacotes encontra-se na pasta da apresentação.</small>
 
-## O que é webscrapping ?
+## O que é web scraping ?
 
-Webscrapping é uma técnica de coleta online que por meio de processos automatizados realiza uma _raspagem_ (scrapping) de uma página da web, estruturando informações contidas no site.
+web scraping é uma técnica de coleta online que por meio de processos automatizados realiza uma _raspagem_ (scrapping) de uma página da web, estruturando informações contidas no site.
 
 <div class="columns-2" class="centered">
 ```{r echo=FALSE, out.height = '200x', fig.cap = 'Dados estruturados'}

@@ -1,5 +1,5 @@
 # Universidade Federal Fluminense (UFF)
-# Uma abordagem prática para o básico de Webscrapping.
+# Uma abordagem prática para o básico de Web scraping.
 
 # Seção 1 ----------- Pacotes
 # Instalaremos os seguintes pacotes:
@@ -19,9 +19,9 @@ require(stringr)
 require(magrittr)
 require(readr)
 
-# Seção 2 --- Webscrapping
+# Seção 2 --- Web scraping
 # Seção 2.1 ----------- rvest
-# Nosso primeiro exemplo de webscrapping será no site IMDB, que oferece informações
+# Nosso primeiro exemplo de web scraping será no site IMDB, que oferece informações
 # gerais de filmes. ( https://www.imdb.com )
 url <- 'https://www.imdb.com'
 
