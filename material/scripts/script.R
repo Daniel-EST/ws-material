@@ -98,10 +98,11 @@ poster <-
   html_node('.poster img') %>% # perceba que a tag 'img' esta encadeada a class 'poster'.
   html_attr('src') # coletando o atributo 'src' que contem o link da imagem
 # Fazendo download da imagem e salvando na pasta 'poster'
+dir.create('poster')
 download.file(poster,
-              paste0('poster\\', titulo, '.jpg'),
+              paste0('poster//', titulo, '.jpg'),
               mode = 'wb',
-              quite = TRUE)
+              method = 'curl')
 
 # Automatizando
 filmes <-
@@ -150,9 +151,9 @@ info_filmes <- function(url)
     html_attr('src') # coletando o atributo 'src' que contem o link da imagem
   # Fazendo download da imagem e salvando na pasta 'poster'
   download.file(poster,
-                paste0('poster\\', titulo, '.jpg'),
-                mode = 'wb',
-                quite = TRUE)
+              paste0('poster//', titulo, '.jpg'),
+              mode = 'wb',
+              method = 'curl')
   
   Sys.sleep(1) # Dando uma pausa de um segundo para ser gentil com o servidor da IMDB.
   return(t(
