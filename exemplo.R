@@ -198,7 +198,7 @@ dat_tb <-
   as_tibble() %>%
   set_names(variaveis) %>%
   add_column(produto = links,
-             data_coleta = today()) %>%
+             data_coleta = lubridate::today()) %>%
   mutate(
     preco = preco  %>%
       str_replace('\r\n ', ''),
