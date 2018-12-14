@@ -6,7 +6,7 @@ date: '15 de dezembro de 2018'
 output: 
   ioslides_presentation:
      logo: ../../src/img/logo.png
-     widescreen: true
+    # widescreen: true
      self_contained: yes
     # incremental: true
 ---
@@ -81,10 +81,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## O que é web scraping ?
 
-web scraping é uma técnica de coleta online que por meio de processos automatizados realiza uma _raspagem_ (scrapping) de uma página da web, estruturando informações contidas no site.
+web scraping é uma técnica de coleta online que por meio de processos automatizados realiza uma _raspagem_ (scraping) de uma página da web, estruturando informações contidas no site.
 
 <div class="columns-2" class="centered">
-```{r echo=FALSE, out.height = '200x', fig.cap = 'Dados estruturados'}
+```{r echo=FALSE, out.height='200px', out.width='375px', fig.cap = 'Dados estruturados'}
 knitr::include_graphics("../../src/img/estructured.png")
 ```
 
@@ -95,7 +95,7 @@ knitr::include_graphics("../../src/img/non-estructured.png")
   
 ## robots.txt
 
-robots.txt é uma forma de sabermos onde o proprietário do site nos permite fazer scrapping. Atualmente, grande parte dos sites já possuem e podemo checar apenas adicionando `/robots.txt` no final da url.  
+robots.txt é uma forma de sabermos onde o proprietário do site nos permite fazer scraping. Atualmente, grande parte dos sites já o possuem. Podemos consultá-lo apenas adicionando `/robots.txt` no final da url.  
 <br>
 Exemplo:
 <http://www.amazon.com.br/robots.txt> , ao clicar no link poderemos ver o robots.txt da página da Amazon.
@@ -124,7 +124,7 @@ Exemplo:
 
 Podemos inspecionar os elementos de uma página clicando com o botão direito do mouse e acessando a opção **Inspecionar Elemento**.
 
-```{r echo=FALSE, out.height = '280px', fig.align = 'center'}
+```{r echo=FALSE, out.height = '280px', out.width = '250px', fig.align = 'center'}
 knitr::include_graphics("../../src/img/inspect-element-click.png")
 ```
 
@@ -132,7 +132,7 @@ knitr::include_graphics("../../src/img/inspect-element-click.png")
 
 A seguinte janela aparecerá.
 
-```{r echo=FALSE, out.height = '280px', fig.align = 'center'}
+```{r echo=FALSE, out.height = '280px', out.width='700px', fig.align = 'center'}
 knitr::include_graphics("../../src/img/inspect-element-view.png")
 ```
 
@@ -143,7 +143,7 @@ O xpath assim como tag, class e id é uma forma de localizar elementos de uma p�
 Em **Inspecionar Elemento** clique com o botão direito na parte desejada e selecione
 `copiar -> xpath` (pode variar de navegador para navegador).
 
-```{r echo=FALSE, out.height = '255px', fig.align = 'center', fig.cap = 'Copiando o xpath de um node'}
+```{r echo=FALSE, out.height = '255px', out.width = '300px', fig.align = 'center', fig.cap = 'Copiando o xpath de um node'}
 knitr::include_graphics("../../src/img/xpath.png")
 ```
 
@@ -174,8 +174,8 @@ Principais funções.
 - `html_attr()`  
 - `html_table()` 
 
-```{r echo=FALSE, out.height = '300px', fig.align = 'center'}
-knitr::include_graphics("../../src/img/rvest.png")
+```{r echo=FALSE, out.height = '300px', out.width = '300px', fig.align = 'center'}
+knitr::include_graphics("../../src/img/rvest.jpg")
 ```
 </div>
 
@@ -186,7 +186,7 @@ que lê arquivos no formato `.csv`.
 
 -  `HTML <- read_html(https://www.wikipedia.org/)` aqui estamos lendo a página inicial do Wikipedia e armazenando em um objeto.
 
-```{r echo=FALSE, out.height = '155px', fig.align = 'center', fig.cap = 'O seguinte objeto foi criado'}
+```{r echo=FALSE, out.height = '155px', out.width='500px', fig.align = 'center', fig.cap = 'O seguinte objeto foi criado'}
 knitr::include_graphics("../../src/img/html-objeto.png")
 ```
 
@@ -218,9 +218,9 @@ Esse conjunto de funções nos permite efitivamente coletar as informções dos 
   + `html_attr()` coleta um atributo do node, por exemplo `href`.
   + `html_table()` coleta uma tabela.
 
-# Exercício
+# Exercício (rvest)
 
-## Exercício
+## Exercício (rvest)
 
 Com o que vimos até agora faça uma coleta simples no site do [IMDB](https://www.imdb.com/) de algum filme que queira e colete as seguintes informações:  
   
@@ -254,7 +254,7 @@ Principais funções.
 - `sendKeysToElement()`
 
 
-```{r echo=FALSE, out.height = '250px', fig.align = 'center'}
+```{r echo=FALSE, out.height = '250px', out.width = '235px', fig.align = 'center'}
 knitr::include_graphics("../../src/img/selenium.png")
 ```
 </div>
@@ -303,6 +303,19 @@ objeto <- findElement(using = 'id', value = 'formulario')
 objeto$sendKeysToElement(list('digite o que quiser aqui', key = "enter"))
 ```
 
+# Exercício (RSelenium)
+
+## Exercício (RSelenium)
+Com o que vimos até agora faça uma coleta simples no site da [Subamarino](https://www.submarino.com.br/) de algum produto que queira e colete as seguintes informações:  
+  
+  + Nome
+  + Preco
+  + Código do produto
+  + Valor do frete.  
+  Dica: use a função `sendKeysToElement()`
+
+<small>Tente não usar o xpath.</small>
+
 # Encerramento
 
   + Ética e boas práticas
@@ -312,13 +325,13 @@ objeto$sendKeysToElement(list('digite o que quiser aqui', key = "enter"))
 
 - Respeitar o robots.txt
 - Não fazer mais de uma consulta por segundo. Basta colocar um `Sys.sleep(1)` no seu código.
-- Não ultrapassar o limite de informções coletadas por dia, se evolver. Entretanto, sempre manter o bom senso.
+- Não ultrapassar o limite de informções coletadas por dia, se houver. Entretanto, sempre manter o bom senso.
 
-Essas boas práticas evitam que sobrecarreguemos os servidores e cause prejuízo a essas empresas.
+Essas boas práticas evitam o sobrecarregamento dos servidores e cause prejuízo a essas empresas.
 
 ## Captcha
 
-```{r echo=FALSE, out.height = '600px', fig.align = 'center'}
+```{r echo=FALSE, out.height = '600px', out.width = '700px', fig.align = 'center'}
 knitr::include_graphics("../../src/img/robo.png")
 ```
 

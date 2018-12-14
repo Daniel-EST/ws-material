@@ -8,10 +8,9 @@
 # * stringr ( manipulação de strings )
 # * magrittr ( operadores pipe ' %>% ')
 # * readr ( manipulação de arquivos )
-# * qdapTools
 # * purrr
 # * tidyverse
-# install.packages(c('rvest', 'RSelenium', 'stringr', 'magrittr', 'purrr', 'qdapTools'))
+# install.packages(c('rvest', 'RSelenium', 'stringr', 'magrittr', 'purrr'))
 # install.packages('tidyverse')
 
 # Carregando alguns desses pacotes.
@@ -169,7 +168,8 @@ info_filmes <- function(url)
 
 imdb <-
   purrr::map(filmes, info_filmes) %>%
-  qdapTools::list_df2df()
+  do.call(rbind,.) %>% 
+  as.data.frame()
 
 View(imdb)
 
@@ -244,7 +244,6 @@ urls <- c(
   'https://www.submarino.com.br/produto/31541986/',
   'https://www.submarino.com.br/produto/132490742/',
   'https://www.submarino.com.br/produto/133678229/',
-  'https://www.submarino.com.br/produto/399697/',
   'https://www.submarino.com.br/produto/113091965/',
   'https://www.submarino.com.br/produto/128775024/'
 )
@@ -302,5 +301,6 @@ collect <- function(url, cepNum, remDr = rD$client)
 
 submarino <-
   purrr::map(urls, collect, cepNum = '26290027') %>%
-  qdapTools::list_df2df()
+  do.call(rbind,.) %>% 
+  as.data.frame()
 View(submarino)
