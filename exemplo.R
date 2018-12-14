@@ -197,7 +197,7 @@ dat_tb <-
   do.call(rbind, dat) %>%
   as_tibble() %>%
   set_names(variaveis) %>%
-  add_column(produto = links,
+  add_column(produto = link,
              data_coleta = lubridate::today()) %>%
   mutate(
     preco = preco  %>%

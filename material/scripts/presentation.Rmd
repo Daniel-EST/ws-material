@@ -92,6 +92,13 @@ knitr::include_graphics("../../src/img/estructured.png")
 knitr::include_graphics("../../src/img/non-estructured.png")
 ```
 </div>
+  
+## robots.txt
+
+robots.txt é uma forma de sabermos onde o proprietário do site nos permite fazer scrapping. Atualmente, grande parte dos sites já possuem e podemo checar apenas adicionando `/robots.txt` no final da url.  
+<br>
+Exemplo:
+<http://www.amazon.com.br/robots.txt> , ao clicar no link poderemos ver o robots.txt da página da Amazon.
 
 # HTML
 
@@ -298,16 +305,8 @@ objeto$sendKeysToElement(list('digite o que quiser aqui', key = "enter"))
 
 # Encerramento
 
-  + robots.txt
   + Ética e boas práticas
   + Agradecimento
-  
-## robots.txt
-
-robots.txt é uma forma de sabermos onde o proprietário do site nos permite fazer scrapping. Atualmente, grande parte dos sites já possuem e podemo checar apenas adicionando `/robots.txt` no final da url.  
-<br>
-Exemplo:
-<http://www.amazon.com.br/robots.txt> , ao clicar no link poderemos ver o robots.txt da página da Amazon.
 
 ## Ética e boas práticas
 
